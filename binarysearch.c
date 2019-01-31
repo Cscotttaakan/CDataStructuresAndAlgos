@@ -3,7 +3,7 @@
 
 int binsearch(int num,  IntArray *array ) {
 
-    int upperbound = array->size;
+    int upperbound = array->size - 1;
     int lowerbound = 0;
     printf("\n %d This is the pointer value", *(array->data));
     
@@ -12,16 +12,17 @@ int binsearch(int num,  IntArray *array ) {
         if( upperbound < lowerbound )
             break;
 
-        int midpoint = lowerbound + (upperbound - lowerbound);
+        int midpoint = lowerbound + (upperbound - lowerbound)/2;
         int *ptr = array->data; 
         printf("\n %d is the midpoint \n", midpoint);
 
         printf("\n %p is the address of this pointer \n", ptr);
 
-        ptr += 4;
+        ptr += midpoint;
         printf("\n This is the size of an int: %lu", sizeof(int));
         //ptr += midpoint * sizeof(int);   
         printf("\n This is the address after increment: %p", ptr);
+        printf("\n This is the value after increment: %d", *ptr);
         
         if( *ptr < num ) {
             lowerbound = midpoint + 1;
