@@ -3,7 +3,7 @@
 #include<node.h>
 
 //Leftward bias
-void addNode(Node *left, Node *right){
+void addNodeTail(Node *left, Node *right){
 
     if(*(left->next) == NULL)
         left->next = right;
@@ -11,5 +11,10 @@ void addNode(Node *left, Node *right){
         addNode(left-next, right);
 
     return;
+
+}
+
+void addNodeHead(Node *head, Node *newHead){
+
 
 }
