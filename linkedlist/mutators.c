@@ -1,20 +1,38 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<node.h>
+#include<mutators.h>
 
 //Leftward bias
-void addNodeTail(Node *left, Node *right){
+void addNodeTail(Node *head, int load){
 
-    if(*(left->next) == NULL)
-        left->next = right;
+    if(head->next == NULL){
+        Node *tail = malloc(sizeof(Node));
+        tail->data = load;
+        head->next = tail;
+    }
     else
-        addNode(left-next, right);
-
+        addNodeTail(head, load);
     return;
 
 }
 
-void addNodeHead(Node *head, Node *newHead){
+Node *addNodeHead(Node *head, int load){
 
-
+   Node *newHead = malloc(sizeof(Node));
+   newHead->data = load;
+   newHead->next = head;
+    
+   return newHead;
+    
 }
+
+
+int size(Node *head){
+    if(head->next == NULL)
+        return 1;
+    else{
+        return 1 + size(head);
+    }
+}
+
+
