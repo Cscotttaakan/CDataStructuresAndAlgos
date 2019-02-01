@@ -3,11 +3,11 @@
 #include<mutators.h>
 
 int main(){
-    Node head;
-    head.data = 5;
+    Node *head = mallocNode(head);
+    head->data = 5;
     
-    addNodeTail(&head, 3);
-    printf("\n %d is the size of the linked list. \n", size(&head));
+    addNodeTail(head, 3);
+    printf("\n %d is the size of the linked list. \n", size(head));
 
     return 1;
 }
