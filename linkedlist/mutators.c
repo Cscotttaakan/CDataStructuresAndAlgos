@@ -16,13 +16,13 @@ Node *mallocNode(Node *node){
 //Leftward bias
 void addNodeTail(Node *head, int load){
 
-    if(head->next == NULL){
+    if(!head->next){
         Node *tail = mallocNode(tail);
         tail->data = load;
         head->next = tail;
     }
     else
-        addNodeTail(head, load);
+        addNodeTail(head->next, load);
     return;
 
 }
@@ -39,10 +39,10 @@ Node *addNodeHead(Node *head, int load){
 
 
 int size(Node *head){
-    if(head->next == NULL)
+    if(!head->next)
         return 1;
     else{
-        return 1 + size(head);
+        return 1 + size(head->next);
     }
 }
 
