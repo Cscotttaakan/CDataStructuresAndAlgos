@@ -11,9 +11,10 @@ Node *mallocNode(Node *node){
    return node;
 }
 
-
+//(Time complexity), (Space complexity)
 
 //Leftward bias
+//O(n), O(m) : m functions
 void addNodeTail(Node *head, int load){
 
     if(!head->next){
@@ -27,6 +28,7 @@ void addNodeTail(Node *head, int load){
 
 }
 
+//O(1)
 Node *addNodeHead(Node *head, int load){
 
    Node *newHead = mallocNode(newHead);
@@ -37,13 +39,33 @@ Node *addNodeHead(Node *head, int load){
     
 }
 
-
+//O(n), O(m)
 int size(Node *head){
     if(!head->next)
         return 1;
     else{
         return 1 + size(head->next);
     }
+}
+//O(n), O(m)
+void insertNode(Node *head, int load, int index){
+    if(index > 0 && head->next)
+        insertNode(head->next, load, --index);
+    else{
+        Node *node = mallocNode(node);
+        node->data = load;
+        node->next = head->next;
+        head->next = node;
+    }
+}
+
+void deleteNode(Node *head, int index){
+    if(index > 0 && head->next)
+        deleteNode(head->next, --index);
+    else{
+        
+    }
+    
 }
 
 

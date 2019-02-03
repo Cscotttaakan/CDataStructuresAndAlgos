@@ -11,6 +11,10 @@ int main(){
     addNodeTail(head, 6);
     addNodeTail(head, 7);
     printf("\n %d is the size of the linked list. \n", size(head));
+    insertNode(head, 3, 5);
+    printf("\n %d is the size of the linked list. \n", size(head));
+ 
 
+    
     return 1;
 }
